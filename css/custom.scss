@@ -1,0 +1,521 @@
+@import "func.scss";
+
+
+
+
+// GLOBAL
+body {
+	@extend %nospace;
+	color: $darkergray;
+}
+a {
+	@include transition();
+	&:hover { text-decoration: none; }
+}
+h1, h2, h3, h4, h5, h6 {
+	@extend %nospace;
+}
+h1 { font-size: 1.8em; margin-bottom: 4px; }
+h2 { font-size: 1.4em; margin-bottom: 4px; }
+h3 { font-size: 1.2em; margin-bottom: 4px; }
+.removespace { @include clearspace; }
+.lineheight-lg { line-height: 1.6em;}
+.lineheight-md { line-height: 1.3em;}
+.lineheight-sm { line-height: 1.1em;}
+.round-circle { @include round(50%); }
+.text-red { color: $red !important; }
+a.contentbutton {
+	background: $red;
+	padding: 7px 12px;
+	color: #FFF;
+	display: inline-block;
+	&:hover { background: $orange; }
+}
+
+
+
+
+.itemprev {
+	position: relative;
+	overflow: hidden;
+	.overlay {
+		@include transition(200ms);
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.75);
+		color: #FFF;
+		h4 { padding: 20px 0px 0px 20px; }
+		p { padding: 10px 0px 0px 20px; }
+	}
+	img {
+		padding: 0px;
+		margin: 0px auto;
+	}
+	&:hover { .overlay { top: 0; } }
+}
+
+
+
+
+
+// CONTENT & CONTAINER
+.container {
+	max-width: 990px;
+}
+.innercontainer {
+	@extend %nospace;
+	max-width: 830px;
+}
+.content {
+	margin-top: 125px;
+}
+.content-section {
+	padding: 70px 20px;
+	background: url("../images/section.jpg") no-repeat bottom center;
+}
+.content-section {
+	padding: 70px 20px;
+	background: url("../images/section.jpg") no-repeat bottom center;
+}
+
+
+
+
+// RESPONSIVE MENU
+.responsivemenu {
+	@include transition();
+	position: fixed;
+	top: 0px;
+	right: -100%;
+	width: 70%;
+	height: 100%;
+	background: rgba(#000, 0.9);
+	padding-top: 200px;
+	z-index: 9999;
+	&.show { right: 0%; }
+	&.scrolled { padding-top: 100px; }
+	ul {
+		@extend %nospace;
+		list-style: none;
+		li {
+			a {
+				font-size: 1.2em;
+				display: block;
+				padding: 13px 20px 13px 30px;
+				color: #FFF;
+				background: rgba($brown - 20, 0.5);
+				&:hover {
+					background: rgba($orange,1);
+				}
+			}
+		}
+	}
+}
+
+
+
+
+// HEADER
+$topheader-height: 50px;
+$topheadericon-dimension: 25px;
+$navigation-height: 76px;
+.header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background: #FFF;
+	z-index: 99999;
+	.topheader {
+		@include transition();
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background: $darkergray;
+		color: #FFF;
+		width: 100%;
+		height: $topheader-height;
+		line-height: $topheader-height;
+		z-index: 9999;
+		ul {
+			@extend %nospace;
+			list-style: none;
+			li { display: inline-block; }
+		}
+		.contactxs {
+			text-align: center;
+			height: $topheadericon-dimension;
+			font-size: 0.9em;
+			a { color: #FFF; &:hover { background: #FFF; color: $brown; }}
+			li { margin-left: 5px; }
+			.fa {
+				margin-right: 4px;
+				text-align: center;
+				width: $topheadericon-dimension - 5;
+				height: $topheadericon-dimension - 5;
+				line-height: $topheadericon-dimension - 5;
+				color: #FFF;
+				&.fa-phone { background: #007aff; }
+				&.fa-envelope { background: #ff3d00; }
+			}
+		}
+		.contact {
+			height: $topheadericon-dimension;
+			a { color: #FFF; &:hover { background: #FFF; color: $brown; padding: 0px 5px; } }
+			li { margin-left: 20px; }
+			.fa {
+				margin-right: 4px;
+				text-align: center;
+				width: $topheadericon-dimension;
+				height: $topheadericon-dimension;
+				line-height: $topheadericon-dimension;
+				color: #FFF;
+				&.fa-phone { background: #007aff; }
+				&.fa-envelope { background: #ff3d00; }
+			}
+		}
+		.socialmedia {
+			a {
+				text-align: center;
+				width: $topheadericon-dimension;
+				height: $topheadericon-dimension;
+				line-height: $topheadericon-dimension;
+				color: #FFF;
+				display: block;
+				&.fa-facebook { background: #355db4; &:hover { color: #355db4; } }
+				&.fa-twitter { background: #00c6ff; &:hover { color: #00c6ff; } }
+				&.fa-youtube { background: #e70031; &:hover { color: #e70031; } }
+				&.fa-pinterest { background: #ff0000; &:hover { color: #ff0000; } }
+				&.fa:hover { background: #FFF; width: $topheadericon-dimension+5; }
+			}
+		}
+	}
+	.mainheader {
+		@include transition();
+		position: absolute;
+		top: $topheader-height;
+		left: 0px;
+		width: 100%;
+		height: $navigation-height;
+		background: #FFF;
+		@include shadow(0 5px 0px 0px, 0.1);
+		z-index: 9996;
+		.responsivemenubutton {
+			@include transition(500ms);
+			position: absolute;
+			top: 13px;
+			right: 13px;
+			height: 100px;
+			width: 50px;
+			padding: 0px 10px;
+			z-index: 9997;
+		}
+		.logo-container {
+			.logo {
+				@include transition();
+				@include shadow(0 5px 0px 0px, 0.1);
+				background: #FFF;
+				display: inline-block;
+				padding: 15px;
+				img {
+					@include transition(500ms);
+					max-height: 300px;
+				}
+			}
+			.logoxs {
+				@include transition();
+				@include shadow(0 5px 0px 0px, 0.1);
+				background: #FFF;
+				display: inline-block;
+				padding: 15px;
+				img {
+					@include transition(500ms);
+					max-height: 100px;
+					margin: 0px;
+				}
+			}
+			.logo-socialmedia {
+				@include transition();
+				position: absolute;
+				top: -75px;
+				left: 190px;
+				ul {
+					@include clearspace();
+					list-style: none;
+					li {
+						display: inline-block;
+						a {
+							text-align: center;
+							width: $topheadericon-dimension;
+							height: $topheadericon-dimension;
+							line-height: $topheadericon-dimension;
+							color: #FFF;
+							display: block;
+							&.fa-facebook { background: #355db4; &:hover { color: #355db4; } }
+							&.fa-twitter { background: #00c6ff; &:hover { color: #00c6ff; } }
+							&.fa-youtube { background: #e70031; &:hover { color: #e70031; } }
+							&.fa-pinterest { background: #ff0000; &:hover { color: #ff0000; } }
+							&.fa:hover { background: #FFF; }
+						}
+					}
+				}
+			}
+		}
+		.navigation {
+			text-align: right;
+			ul {
+				@include clearspace();
+				height: $navigation-height;
+				list-style: none;
+				font-size: 0;
+				overflow: hidden;
+				li {
+					display: inline-block;
+					height: $navigation-height;
+					line-height: $navigation-height;
+					a {
+						font-size: 12px;
+						color: $lightblue;
+						display: block;
+						padding: 0px 17px;
+						&:hover {
+							background: $lightgray;
+							color: #FFF;
+						}
+					}
+					&.active {
+						background: $darkergray;
+						a { color: #FFF; &:hover { background: $darkergray; } }
+					}
+				}
+			}
+		}
+	}
+}
+.header.scrolled {
+	.logosocialmedia { top: 0px; }
+	.topheader { top: -$topheader-height; }
+	.mainheader {
+		top: 0px;
+		.responsivemenubutton {
+			top: 3px;
+			right: 3px;
+			width: 49px;
+			height: 70px;
+		}
+		.logo-container {
+			.logo {
+				@include shadow(0 0 0 0, 0);
+				padding: 5px;
+				& img {
+					max-height: 65px;
+				}
+			}
+			.logoxs {
+				@include shadow(0 0 0 0, 0);
+				padding: 5px;
+				& img {
+					max-height: 65px;
+				}
+			}
+			.logo-socialmedia {
+				top: 25px;
+				@include transition(800ms);
+			}
+		}
+		.navigation {
+			ul {
+				li {
+					&.active {
+						@include transition(200ms);
+						background: $blue;
+						a { color: #FFF; &:hover { background: $blue; } }
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// SLIDESHOW
+.slideshowcontainer {
+	.slideshownav {
+		@extend %nospace;
+		a {
+			@include transition(150ms);
+			display: block;
+			padding: 10px;
+			color: #FFF;
+			&:hover { padding: 10px 20px; }
+		}
+		.slideprev {
+			@extend %nospace;
+			a { background: $blue - 10; &:hover { background: $lighterblue - 10; } }
+		}
+		.slidenext {
+			@extend %nospace;
+			a { background: $blue + 20; &:hover { background: $lighterblue + 10; } }
+		}
+	}
+	#slideshow {
+		img { width: 100%; margin: 0 auto; position: absolute; top: 0px; left: 0px; }
+	}
+	.inv { img { width: 100%; } }
+}
+
+
+
+
+
+
+// MENU
+.menu {
+	.menu-item {
+		a {
+			font-size: 5em;
+			width: 220px;
+			height: 220px;
+			line-height: 220px;
+			color: $lightblue;
+			background: $lightestblue;
+			&:hover {
+				font-size: 5.5em;
+				color: #FFF;
+				background: $lighterblue;
+			}
+		}
+	}
+	.menu-title {
+		padding: 15px 0px;
+	}
+	.menu-text {
+		padding: 0px 0px 15px 0px;
+	}
+}
+
+
+
+
+
+// FOOTER
+.footer {
+	$minimumheight: 200px;
+	margin-top: 90px;
+	padding: 0px 10px;
+	background: rgba($lightestblue + 20, 0.5);
+	color: #000;
+	font-size: 0.85em;
+	border-bottom: solid 5px $lightestblue;
+	.footerborder-left { background: url("../images/footerborder.png") repeat-y left center; }
+	.footerborder-right { background: url("../images/footerborder.png") repeat-y right center; }
+	.footer-item { padding: 20px; min-height: $minimumheight; }
+	a { padding: 2px; color: #000; &:hover { text-decoration: underline; }}
+	ul {
+		@include clearspace();
+		list-style: none;
+		li {
+			a {
+				display: block;
+				padding: 4px;
+				&:hover {
+					background: $lighterblue;
+					color: #FFF;
+					text-decoration: none;
+					padding-left: 10px;
+				}
+			}
+			&.active {
+				background: $blue;
+				a { color: #FFF; }
+			}
+		}
+	}
+	.footer-socialmedia {
+		padding: 10px;
+		a {
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			color: #FFF;
+			text-align: center;
+		}
+		& a.fa-facebook { background: #355db4; &:hover { color: #355db4; } }
+		& a.fa-twitter { background: #00c6ff; &:hover { color: #00c6ff; } }
+		& a.fa-youtube { background: #e70031; &:hover { color: #e70031; } }
+		& a.fa-pinterest { background: #ff0000; &:hover { color: #ff0000; } }
+		& a.fa:hover { background: #FFF; text-decoration: none; }
+	}
+}
+
+
+
+.footer-contact {
+	padding-top: 100px;
+	.contact-form {
+		.input-field {
+			margin-bottom: 10px;
+		}
+		.form-control {
+			border: 1px solid #ececec;
+			border-radius: 0;
+			box-shadow: none;
+			color: #818181;
+			font-size: 16px;
+			height: 50px;
+		}
+		textarea.form-control {
+			width: 100%;
+			height: 165px;
+		}
+		button {
+			@include transition(200ms);
+		}
+	}
+	.contact-details {
+		h3 {
+			border-bottom: 1px solid #008ecc;
+			font-weight: 700;
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+			text-transform: uppercase;
+		}
+		p {
+			line-height: 30px;
+			i {
+				margin-right: 10px;
+			}
+		}
+		span {
+			display: block;
+			margin-left: 24px;
+		}
+	}
+}
+
+
+
+
+
+// BOOTSTRAP OVERRIDE
+.img-responsive {
+	margin: auto;
+}
+.btn {
+	@include round(0px);
+	&.btn-warning {
+		background: $red;
+		border: none;
+		&:hover { background: $orange; }
+	}
+	&.btn-danger {
+		background: $blue;
+		border: none;
+		&:hover { background: $lighterblue; }
+	}
+}

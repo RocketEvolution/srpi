@@ -1,0 +1,60 @@
+// VARIABLES
+$brown: #420e01;
+$lightbrown: #FED;
+$lighterbrown: #d7b9b1;
+$lightestbrown: #ecddda;
+$red: #F00;
+$orange: #ff8b00;
+$lightestblue: #a4c8ff;
+$lighterblue: #64a2ff;
+$lightblue: #3787ff;
+$blue: #06F;
+$darkblue: #004dc1;
+$darkerblue: #003688;
+$darkestblue: #00255c;
+$lightyellow: #ffe362;
+$yellow: #ffd71e;
+$darkyellow: #fdba00;
+$lightestgray: #E9E9E9;
+$lightergray: #BBB;
+$lightgray: #999;
+$gray: #777;
+$darkgray: #555;
+$darkergray: #333;
+
+
+
+
+// PLACEHOLDER
+%nospace {
+	padding: 0px;
+	margin: 0px auto;
+}
+
+
+// MIXINS
+@mixin clearspace() {
+	padding: 0px;
+	margin: 0px;
+}
+@mixin transition($duration: 350ms) {
+	transition: all $duration ease;
+	-o-transition: all $duration ease;
+	-ms-transition: all $duration ease;
+	-moz-transition: all $duration ease;
+	-webkit-transition: all $duration ease;
+}
+@mixin shadow($depth: 0 0 1px 1px, $alpha: 0.2) {
+	box-shadow: $depth rgba(#000, $alpha);
+	-o-box-shadow: $depth rgba(#000, $alpha);
+	-ms-box-shadow: $depth rgba(#000, $alpha);
+	-moz-box-shadow: $depth rgba(#000, $alpha);
+	-webkit-box-shadow: $depth rgba(#000, $alpha);
+}
+@mixin round($radius: 5px) {
+	border-radius: $radius;
+	-o-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
